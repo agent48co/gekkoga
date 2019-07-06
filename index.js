@@ -527,7 +527,11 @@ class Ga {
 
       // store in json
       const json = JSON.stringify(allTimeMaximum);
-      await fs.writeFile(`./results/${this.configName}-${this.currency}_${this.asset}.json`, json, 'utf8').catch(err => console.log(err) );
+      //await fs.writeFile(`./results/${this.configName}-${this.currency}_${this.asset}.json`, json, 'utf8').catch(err => console.log(err) );
+
+      const configId = `${this.configName}-${this.currency}_${this.asset}`;
+      process.send && process.send({results: otherPopulationMetrics[position], input: population[position], configId: configId});
+      await fs.writeFile(`./results/${configId}.json`, json, 'utf8').catch(err => console.log(err) );
 
       if (this.sendemail && this.notifynewhigh) {
         var transporter = nodemailer.createTransport({
