@@ -4,7 +4,8 @@
   "description": "GA for Gekko",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rsi_atr-usd_btc": "node run -c config/config-rsi_atr-usd_btc.js"
   },
   "repository": {
     "type": "git",
