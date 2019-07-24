@@ -64,7 +64,8 @@ const configRsi_atr = {
 
   // candleValues: [5,10,15,30,60,120,240],
 
-  candleValues: [14, 60],
+  // candleValues: [14, 60],
+  candleValues: [14],
   getProperties: () => ({
 //    interval: randomExt.pick(configRsi_atr.candleValues),
     historySize: 100,
