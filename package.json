@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "rsi_atr-usd_btc": "node run -c config/config-rsi_atr-usd_btc.js"
+    "rsi_atr-usd_btc": "node run -c config/config-rsi_atr-usd_btc.js",
+    "rsi_atr-usd_btc-2": "node run -c config/config-rsi_atr-usd_btc-2.js",
+    "config-atr_adx_trend-btc_ltc": "node run -c config/config-atr_adx_trend-btc_ltc.js",
+    "config-atr_adx_trend-usdt_btc": "node %NODE_DEBUG_OPTION% run -c config/config-atr_adx_trend-usdt_btc.js",
+    "config-jumpojimbo-btc_ltc": "node run -c config/config-jumpojimbo-btc_ltc.js",
+    "config-jumpojimbo-usdt_btc": "node  run -c config/config-jumpojimbo-usdt_btc.js"
   },
   "repository": {
     "type": "git",
