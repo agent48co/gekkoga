@@ -1,0 +1,34 @@
+{
+  "parameters": {
+    "ATR_Period": 14,
+    "candleSize": 14,
+    "historySize": 100,
+    "thresholds": {
+      "RSI_LOW_BUY": 30,
+      "ATR_LOW_SELL": 1000,
+      "ATR_HIGH_BUY": 142,
+      "RSI_HIGH_SELL": 70,
+      "STOP_LOSS_RATIO": 0.99,
+      "TIMEOUT_EXIT_COEF": 1.01,
+      "RSI_LOW_BUY_ALWAYS": 15,
+      "RSI_HIGH_SELL_ALWAYS": 75,
+      "TIMEOUT_EXIT_MINUTES": 120
+    }
+  },
+  "score": 210894.9966840959,
+  "profit": 863.0595889600008,
+  "sharpe": 244.35739939837455,
+  "epochNumber": 724,
+  "otherMetrics": {
+    "balance": 10863.05958896,
+    "profit": 863.0595889600008,
+    "sharpe": 244.35739939837455,
+    "market": -2.4210463518589904,
+    "relativeProfit": 8.630595889600002,
+    "yearlyProfit": 14989.944533579068,
+    "relativeYearlyProfit": 149.89944533579057,
+    "startPrice": 10560.31,
+    "endPrice": 10304.64,
+    "trades": 14
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parameters": {
+    "RSI_LOW": 34,
+    "RSI_HIGH": 54,
+    "NATR_MIN": "2.0",
+    "candleSize": 1,
+    "historySize": 14,
+    "DIP_TIMEOUT": 1440,
+    "TAKE_PROFIT": "1.012"
+  },
+  "score": 151341.01983939848,
+  "profit": 447.97795902999997,
+  "sharpe": 337.8313972568984,
+  "losses": 0,
+  "exposure": 0.028553595921769127,
+  "trades": 250,
+  "epochNumber": 298,
+  "otherMetrics": {
+    "balance": 547.97795903,
+    "profit": 447.97795902999997,
+    "sharpe": 337.8313972568984,
+    "losses": 0,
+    "market": 125.31637558628222,
+    "relativeProfit": 447.97795902999997,
+    "yearlyProfit": 220.14453311643558,
+    "relativeYearlyProfit": 220.14453311643558,
+    "startPrice": 4266.29,
+    "endPrice": 9612.65,
+    "trades": 250,
+    "exposure": 0.028553595921769127,
+    "maxExposure": 333660000
+  },
+  "maxExposure": 333660000
+}

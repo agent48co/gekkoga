@@ -1,0 +1,28 @@
+{
+  "parameters": {
+    "RSI_LOW": 19,
+    "RSI_HIGH": 52,
+    "NATR_MIN": "1.1",
+    "candleSize": 1,
+    "historySize": 14,
+    "DIP_TIMEOUT": 5760,
+    "TAKE_PROFIT": "1.015"
+  },
+  "score": 3.176167559596171,
+  "profit": 0.00643057,
+  "sharpe": 493.9169559768685,
+  "epochNumber": 29,
+  "otherMetrics": {
+    "balance": 0.01518357,
+    "profit": 0.00643057,
+    "sharpe": 493.9169559768685,
+    "losses": 0,
+    "market": -17.41117331200732,
+    "relativeProfit": 73.46703987204387,
+    "yearlyProfit": 0.006434989282563529,
+    "relativeYearlyProfit": 73.51752864804672,
+    "startPrice": 0.008753,
+    "endPrice": 0.007229,
+    "trades": 8
+  }
+}

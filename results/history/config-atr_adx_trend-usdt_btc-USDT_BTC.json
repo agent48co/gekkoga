@@ -1,0 +1,25 @@
+{
+  "parameters": {
+    "USE_HEIKEN": false,
+    "candleSize": 240,
+    "historySize": 14,
+    "RSI_BUY_MIN": 83,
+    "CANDLE_NUMBER": 1
+  },
+  "score": 585664.5639252034,
+  "profit": 20041.6823777,
+  "sharpe": 29.22232539603867,
+  "epochNumber": 303,
+  "otherMetrics": {
+    "balance": 22600.5753227,
+    "profit": 20041.6823777,
+    "sharpe": 29.22232539603867,
+    "market": 305.526929927895,
+    "relativeProfit": 783.2169148326758,
+    "yearlyProfit": 9180.199310939359,
+    "relativeYearlyProfit": 358.75667752639646,
+    "startPrice": 2558.892945,
+    "endPrice": 10377,
+    "trades": 178
+  }
+}

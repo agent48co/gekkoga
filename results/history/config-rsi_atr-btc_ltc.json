@@ -1,1 +1,954 @@
-[{"results":{"balance":1.01308079,"profit":0.013080790000000064,"sharpe":361.2627883890381,"market":5.809424867430479,"relativeProfit":1.3080790000000064,"yearlyProfit":4.817808848647082,"relativeYearlyProfit":481.78088486470824,"startPrice":0.01015505,"endPrice":0.010745,"trades":17},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":39,"ATR_LOW_SELL":0.00001,"ATR_HIGH_BUY":0.000015,"RSI_HIGH_SELL":53,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"563a9160-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":1.00946204,"profit":0.00946204000000006,"sharpe":225.30418314218943,"market":5.809424867430479,"relativeProfit":0.9462040000000087,"yearlyProfit":3.484980650117669,"relativeYearlyProfit":348.4980650117679,"startPrice":0.01015505,"endPrice":0.010745,"trades":5},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":40,"ATR_LOW_SELL":0.000011,"ATR_HIGH_BUY":0.000018,"RSI_HIGH_SELL":65,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"8b390130-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":1.00904364,"profit":0.00904364000000002,"sharpe":270.11775875009494,"market":5.809424867430479,"relativeProfit":0.9043640000000011,"yearlyProfit":3.330879007764713,"relativeYearlyProfit":333.087900776471,"startPrice":0.01015505,"endPrice":0.010745,"trades":9},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":40,"ATR_LOW_SELL":0.000013,"ATR_HIGH_BUY":0.000018,"RSI_HIGH_SELL":53,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"1c885d80-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":1.00820657,"profit":0.008206570000000024,"sharpe":186.44833819016165,"market":5.809424867430479,"relativeProfit":0.8206569999999971,"yearlyProfit":3.0225762788823616,"relativeYearlyProfit":302.2576278882342,"startPrice":0.01015505,"endPrice":0.010745,"trades":7},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":40,"ATR_LOW_SELL":0.000014,"ATR_HIGH_BUY":0.000016,"RSI_HIGH_SELL":65,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"fc988db0-a01e-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":1.00722423,"profit":0.007224230000000054,"sharpe":226.8982624843549,"market":5.809424867430479,"relativeProfit":0.7224230000000063,"yearlyProfit":2.6607688999411963,"relativeYearlyProfit":266.07688999411994,"startPrice":0.01015505,"endPrice":0.010745,"trades":13},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":40,"ATR_LOW_SELL":0.000014,"ATR_HIGH_BUY":0.000016,"RSI_HIGH_SELL":60,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"5d9f6120-a01e-11e9-b581-7986137eb065"},{"results":{"balance":1.00510749,"profit":0.005107490000000103,"sharpe":118.32497244458575,"market":5.809424867430479,"relativeProfit":0.5107490000000041,"yearlyProfit":1.881148655117685,"relativeYearlyProfit":188.1148655117662,"startPrice":0.01015505,"endPrice":0.010745,"trades":7},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":38,"ATR_LOW_SELL":0.00001,"ATR_HIGH_BUY":0.000017,"RSI_HIGH_SELL":46,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"706a2ba0-a01e-11e9-b581-7986137eb065"},{"results":{"balance":1.00435994,"profit":0.004359940000000062,"sharpe":98.63735248162739,"market":5.809424867430479,"relativeProfit":0.435994000000008,"yearlyProfit":1.6058171954117875,"relativeYearlyProfit":160.5817195411794,"startPrice":0.01015505,"endPrice":0.010745,"trades":7},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":36,"ATR_LOW_SELL":0.00001,"ATR_HIGH_BUY":0.000018,"RSI_HIGH_SELL":56,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"419aae30-a01e-11e9-b581-7986137eb065"},{"results":{"balance":1.0008771,"profit":0.000877100000000075,"sharpe":48.290565514110895,"market":5.809424867430479,"relativeProfit":0.08771000000000129,"yearlyProfit":0.32304624882355704,"relativeYearlyProfit":32.304624882353416,"startPrice":0.01015505,"endPrice":0.010745,"trades":11},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":38,"ATR_LOW_SELL":0.000049,"ATR_HIGH_BUY":0.000016,"RSI_HIGH_SELL":60,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"5f23c1c0-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":1.00086485,"profit":0.0008648499999999171,"sharpe":47.487731385012474,"market":5.809424867430479,"relativeProfit":0.08648499999999615,"yearlyProfit":0.3185344297058518,"relativeYearlyProfit":31.853442970586816,"startPrice":0.01015505,"endPrice":0.010745,"trades":11},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":36,"ATR_LOW_SELL":0.000023,"ATR_HIGH_BUY":0.000016,"RSI_HIGH_SELL":59,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"751b1410-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.99385894,"profit":-0.0061410600000000315,"sharpe":-504.8474141412586,"market":5.809424867430479,"relativeProfit":-0.6141060000000067,"yearlyProfit":-2.2618246457647175,"relativeYearlyProfit":-226.18246457647305,"startPrice":0.01015505,"endPrice":0.010745,"trades":7},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":34,"ATR_LOW_SELL":0.000025,"ATR_HIGH_BUY":0.000017,"RSI_HIGH_SELL":56,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"942761b0-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.99149203,"profit":-0.008507970000000031,"sharpe":-550.2368175923541,"market":5.809424867430479,"relativeProfit":-0.850797,"yearlyProfit":-3.133585444764717,"relativeYearlyProfit":-313.35854447647057,"startPrice":0.01015505,"endPrice":0.010745,"trades":7},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":38,"ATR_LOW_SELL":0.000023,"ATR_HIGH_BUY":0.000019,"RSI_HIGH_SELL":55,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"bd7cbdd0-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.99100451,"profit":-0.008995489999999995,"sharpe":-728.4763940997282,"market":5.809424867430479,"relativeProfit":-0.8995489999999933,"yearlyProfit":-3.3131447962941154,"relativeYearlyProfit":-331.3144796294093,"startPrice":0.01015505,"endPrice":0.010745,"trades":11},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":38,"ATR_LOW_SELL":0.00004,"ATR_HIGH_BUY":0.000016,"RSI_HIGH_SELL":54,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"aa991420-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.98703882,"profit":-0.012961180000000017,"sharpe":-1079.0412346207609,"market":5.809424867430479,"relativeProfit":-1.296118000000007,"yearlyProfit":-4.773755078470594,"relativeYearlyProfit":-477.3755078470614,"startPrice":0.01015505,"endPrice":0.010745,"trades":9},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":36,"ATR_LOW_SELL":0.000027,"ATR_HIGH_BUY":0.000018,"RSI_HIGH_SELL":52,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"332003f0-a01e-11e9-b581-7986137eb065"},{"results":{"balance":0.98490554,"profit":-0.015094460000000032,"sharpe":-795.3818857036177,"market":5.809424867430479,"relativeProfit":-1.509445999999997,"yearlyProfit":-5.559467199882365,"relativeYearlyProfit":-555.9467199882341,"startPrice":0.01015505,"endPrice":0.010745,"trades":7},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":38,"ATR_LOW_SELL":0.000017,"ATR_HIGH_BUY":0.000021,"RSI_HIGH_SELL":56,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"637e6950-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.98488495,"profit":-0.015115050000000019,"sharpe":-896.4261101609937,"market":5.809424867430479,"relativeProfit":-1.5115049999999997,"yearlyProfit":-5.567050739117653,"relativeYearlyProfit":-556.7050739117645,"startPrice":0.01015505,"endPrice":0.010745,"trades":7},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":38,"ATR_LOW_SELL":0.000031,"ATR_HIGH_BUY":0.000021,"RSI_HIGH_SELL":62,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"8faf6e20-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.98484322,"profit":-0.01515677999999998,"sharpe":-1771.6672372869627,"market":5.809424867430479,"relativeProfit":-1.515677999999994,"yearlyProfit":-5.582420389058816,"relativeYearlyProfit":-558.2420389058801,"startPrice":0.01015505,"endPrice":0.010745,"trades":7},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":39,"ATR_LOW_SELL":0.000032,"ATR_HIGH_BUY":0.00002,"RSI_HIGH_SELL":60,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"7e1c55c0-a01e-11e9-b581-7986137eb065"},{"results":{"balance":0.9816636,"profit":-0.01833640000000003,"sharpe":-1076.7909688742448,"market":5.809424867430479,"relativeProfit":-1.8336400000000026,"yearlyProfit":-6.753511842352952,"relativeYearlyProfit":-675.351184235295,"startPrice":0.01015505,"endPrice":0.010745,"trades":7},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":38,"ATR_LOW_SELL":0.000019,"ATR_HIGH_BUY":0.000021,"RSI_HIGH_SELL":56,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"9d48b910-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.9807965,"profit":-0.01920350000000004,"sharpe":-1189.8141209619228,"market":5.809424867430479,"relativeProfit":-1.9203499999999991,"yearlyProfit":-7.0728749735294265,"relativeYearlyProfit":-707.2874973529408,"startPrice":0.01015505,"endPrice":0.010745,"trades":7},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":38,"ATR_LOW_SELL":0.000032,"ATR_HIGH_BUY":0.000021,"RSI_HIGH_SELL":55,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"a1a77f50-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.9807965,"profit":-0.01920350000000004,"sharpe":-1189.8141209619228,"market":5.809424867430479,"relativeProfit":-1.9203499999999991,"yearlyProfit":-7.0728749735294265,"relativeYearlyProfit":-707.2874973529408,"startPrice":0.01015505,"endPrice":0.010745,"trades":7},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":38,"ATR_LOW_SELL":0.000053,"ATR_HIGH_BUY":0.000021,"RSI_HIGH_SELL":56,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"b3d8a1e0-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.98072995,"profit":-0.01927005000000004,"sharpe":-974.93093094662,"market":5.809424867430479,"relativeProfit":-1.9270050000000083,"yearlyProfit":-7.097386121470602,"relativeYearlyProfit":-709.7386121470619,"startPrice":0.01015505,"endPrice":0.010745,"trades":5},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":34,"ATR_LOW_SELL":0.000011,"ATR_HIGH_BUY":0.00002,"RSI_HIGH_SELL":52,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"546f15a0-a01e-11e9-b581-7986137eb065"},{"results":{"balance":0.97986708,"profit":-0.02013292,"sharpe":-1179.6158872790131,"market":5.809424867430479,"relativeProfit":-2.013292000000007,"yearlyProfit":-7.415191293882352,"relativeYearlyProfit":-741.5191293882378,"startPrice":0.01015505,"endPrice":0.010745,"trades":7},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":38,"ATR_LOW_SELL":0.000026,"ATR_HIGH_BUY":0.000021,"RSI_HIGH_SELL":52,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"822df0f0-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.97662317,"profit":-0.023376830000000015,"sharpe":-1112.4968683102366,"market":5.809424867430479,"relativeProfit":-2.3376829999999984,"yearlyProfit":-8.609961510529416,"relativeYearlyProfit":-860.9961510529405,"startPrice":0.01015505,"endPrice":0.010745,"trades":19},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":40,"ATR_LOW_SELL":0.000015,"ATR_HIGH_BUY":0.000015,"RSI_HIGH_SELL":51,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"3cc112a0-a01e-11e9-b581-7986137eb065"},{"results":{"balance":0.97661453,"profit":-0.02338547000000002,"sharpe":-1378.772975961579,"market":5.809424867430479,"relativeProfit":-2.3385470000000055,"yearlyProfit":-8.613143724176478,"relativeYearlyProfit":-861.314372417649,"startPrice":0.01015505,"endPrice":0.010745,"trades":7},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":37,"ATR_LOW_SELL":0.000019,"ATR_HIGH_BUY":0.000021,"RSI_HIGH_SELL":48,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"80d24370-a01d-11e9-b581-7986137eb065"},{"results":{"balance":0.97253265,"profit":-0.02746735,"sharpe":-1649.4323453081777,"market":5.809424867430479,"relativeProfit":-2.746735000000001,"yearlyProfit":-10.116548150294118,"relativeYearlyProfit":-1011.6548150294121,"startPrice":0.01015505,"endPrice":0.010745,"trades":7},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":39,"ATR_LOW_SELL":0.000024,"ATR_HIGH_BUY":0.000021,"RSI_HIGH_SELL":51,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"0a8528c0-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.97228763,"profit":-0.02771237000000004,"sharpe":-2349.437366871078,"market":5.809424867430479,"relativeProfit":-2.7712369999999993,"yearlyProfit":-10.206791898882368,"relativeYearlyProfit":-1020.679189888235,"startPrice":0.01015505,"endPrice":0.010745,"trades":19},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":39,"ATR_LOW_SELL":0.000046,"ATR_HIGH_BUY":0.000015,"RSI_HIGH_SELL":56,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"257362a0-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.97228763,"profit":-0.02771237000000004,"sharpe":-2349.437366871078,"market":5.809424867430479,"relativeProfit":-2.7712369999999993,"yearlyProfit":-10.206791898882368,"relativeYearlyProfit":-1020.679189888235,"startPrice":0.01015505,"endPrice":0.010745,"trades":19},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":39,"ATR_LOW_SELL":0.000028,"ATR_HIGH_BUY":0.000015,"RSI_HIGH_SELL":56,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"32a8bba0-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.97228763,"profit":-0.02771237000000004,"sharpe":-2349.437366871078,"market":5.809424867430479,"relativeProfit":-2.7712369999999993,"yearlyProfit":-10.206791898882368,"relativeYearlyProfit":-1020.679189888235,"startPrice":0.01015505,"endPrice":0.010745,"trades":19},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":39,"ATR_LOW_SELL":0.000028,"ATR_HIGH_BUY":0.000015,"RSI_HIGH_SELL":56,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"37014050-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.97228763,"profit":-0.02771237000000004,"sharpe":-2349.437366871078,"market":5.809424867430479,"relativeProfit":-2.7712369999999993,"yearlyProfit":-10.206791898882368,"relativeYearlyProfit":-1020.679189888235,"startPrice":0.01015505,"endPrice":0.010745,"trades":19},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":39,"ATR_LOW_SELL":0.000031,"ATR_HIGH_BUY":0.000015,"RSI_HIGH_SELL":56,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"3b952050-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.97154643,"profit":-0.02845357000000004,"sharpe":-3147.0397769106967,"market":5.809424867430479,"relativeProfit":-2.845357000000007,"yearlyProfit":-10.479784578882366,"relativeYearlyProfit":-1047.978457888238,"startPrice":0.01015505,"endPrice":0.010745,"trades":21},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":40,"ATR_LOW_SELL":0.000051,"ATR_HIGH_BUY":0.000016,"RSI_HIGH_SELL":53,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"0f0c3780-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.9672609,"profit":-0.03273910000000002,"sharpe":-3420.6968024984603,"market":5.809424867430479,"relativeProfit":-3.2739100000000008,"yearlyProfit":-12.05819569588236,"relativeYearlyProfit":-1205.8195695882355,"startPrice":0.01015505,"endPrice":0.010745,"trades":21},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":40,"ATR_LOW_SELL":0.000035,"ATR_HIGH_BUY":0.000016,"RSI_HIGH_SELL":51,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"4aedeb00-a01e-11e9-b581-7986137eb065"},{"results":{"balance":0.9672609,"profit":-0.03273910000000002,"sharpe":-3420.6968024984603,"market":5.809424867430479,"relativeProfit":-3.2739100000000008,"yearlyProfit":-12.05819569588236,"relativeYearlyProfit":-1205.8195695882355,"startPrice":0.01015505,"endPrice":0.010745,"trades":21},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":40,"ATR_LOW_SELL":0.000035,"ATR_HIGH_BUY":0.000016,"RSI_HIGH_SELL":51,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"59095e40-a01e-11e9-b581-7986137eb065"},{"results":{"balance":0.96669717,"profit":-0.033302830000000005,"sharpe":-3463.3215480302224,"market":5.809424867430479,"relativeProfit":-3.3302829999999943,"yearlyProfit":-12.265824087000002,"relativeYearlyProfit":-1226.5824086999978,"startPrice":0.01015505,"endPrice":0.010745,"trades":19},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":39,"ATR_LOW_SELL":0.000033,"ATR_HIGH_BUY":0.000015,"RSI_HIGH_SELL":53,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"48ec3220-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.96669717,"profit":-0.033302830000000005,"sharpe":-3463.3215480302224,"market":5.809424867430479,"relativeProfit":-3.3302829999999943,"yearlyProfit":-12.265824087000002,"relativeYearlyProfit":-1226.5824086999978,"startPrice":0.01015505,"endPrice":0.010745,"trades":19},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":39,"ATR_LOW_SELL":0.000045,"ATR_HIGH_BUY":0.000015,"RSI_HIGH_SELL":53,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"4d62ed30-a01f-11e9-a68e-c5d2e9ad726c"},{"results":{"balance":0.96522815,"profit":-0.03477185000000005,"sharpe":-3167.582706829161,"market":5.809424867430479,"relativeProfit":-3.4771850000000057,"yearlyProfit":-12.806881435588252,"relativeYearlyProfit":-1280.6881435588257,"startPrice":0.01015505,"endPrice":0.010745,"trades":17},"input":{"interval":10,"candleSize":1,"historySize":14,"thresholds":{"RSI_LOW_BUY":40,"ATR_LOW_SELL":0.000048,"ATR_HIGH_BUY":0.000018,"RSI_HIGH_SELL":50,"STOP_LOSS_RATIO":0.99,"RSI_HIGH_SELL_ALWAYS":75}},"id":"05f4f240-a01f-11e9-a68e-c5d2e9ad726c"}]
+[
+  {
+    "results": {
+      "balance": 1.01308079,
+      "profit": 0.013080790000000064,
+      "sharpe": 361.2627883890381,
+      "market": 5.809424867430479,
+      "relativeProfit": 1.3080790000000064,
+      "yearlyProfit": 4.817808848647082,
+      "relativeYearlyProfit": 481.78088486470824,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 17
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 39,
+        "ATR_LOW_SELL": 0.00001,
+        "ATR_HIGH_BUY": 0.000015,
+        "RSI_HIGH_SELL": 53,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "563a9160-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 1.00946204,
+      "profit": 0.00946204000000006,
+      "sharpe": 225.30418314218943,
+      "market": 5.809424867430479,
+      "relativeProfit": 0.9462040000000087,
+      "yearlyProfit": 3.484980650117669,
+      "relativeYearlyProfit": 348.4980650117679,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 5
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 40,
+        "ATR_LOW_SELL": 0.000011,
+        "ATR_HIGH_BUY": 0.000018,
+        "RSI_HIGH_SELL": 65,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "8b390130-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 1.00904364,
+      "profit": 0.00904364000000002,
+      "sharpe": 270.11775875009494,
+      "market": 5.809424867430479,
+      "relativeProfit": 0.9043640000000011,
+      "yearlyProfit": 3.330879007764713,
+      "relativeYearlyProfit": 333.087900776471,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 9
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 40,
+        "ATR_LOW_SELL": 0.000013,
+        "ATR_HIGH_BUY": 0.000018,
+        "RSI_HIGH_SELL": 53,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "1c885d80-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 1.00820657,
+      "profit": 0.008206570000000024,
+      "sharpe": 186.44833819016165,
+      "market": 5.809424867430479,
+      "relativeProfit": 0.8206569999999971,
+      "yearlyProfit": 3.0225762788823616,
+      "relativeYearlyProfit": 302.2576278882342,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 7
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 40,
+        "ATR_LOW_SELL": 0.000014,
+        "ATR_HIGH_BUY": 0.000016,
+        "RSI_HIGH_SELL": 65,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "fc988db0-a01e-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 1.00722423,
+      "profit": 0.007224230000000054,
+      "sharpe": 226.8982624843549,
+      "market": 5.809424867430479,
+      "relativeProfit": 0.7224230000000063,
+      "yearlyProfit": 2.6607688999411963,
+      "relativeYearlyProfit": 266.07688999411994,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 13
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 40,
+        "ATR_LOW_SELL": 0.000014,
+        "ATR_HIGH_BUY": 0.000016,
+        "RSI_HIGH_SELL": 60,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "5d9f6120-a01e-11e9-b581-7986137eb065"
+  },
+  {
+    "results": {
+      "balance": 1.00510749,
+      "profit": 0.005107490000000103,
+      "sharpe": 118.32497244458575,
+      "market": 5.809424867430479,
+      "relativeProfit": 0.5107490000000041,
+      "yearlyProfit": 1.881148655117685,
+      "relativeYearlyProfit": 188.1148655117662,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 7
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 38,
+        "ATR_LOW_SELL": 0.00001,
+        "ATR_HIGH_BUY": 0.000017,
+        "RSI_HIGH_SELL": 46,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "706a2ba0-a01e-11e9-b581-7986137eb065"
+  },
+  {
+    "results": {
+      "balance": 1.00435994,
+      "profit": 0.004359940000000062,
+      "sharpe": 98.63735248162739,
+      "market": 5.809424867430479,
+      "relativeProfit": 0.435994000000008,
+      "yearlyProfit": 1.6058171954117875,
+      "relativeYearlyProfit": 160.5817195411794,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 7
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 36,
+        "ATR_LOW_SELL": 0.00001,
+        "ATR_HIGH_BUY": 0.000018,
+        "RSI_HIGH_SELL": 56,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "419aae30-a01e-11e9-b581-7986137eb065"
+  },
+  {
+    "results": {
+      "balance": 1.0008771,
+      "profit": 0.000877100000000075,
+      "sharpe": 48.290565514110895,
+      "market": 5.809424867430479,
+      "relativeProfit": 0.08771000000000129,
+      "yearlyProfit": 0.32304624882355704,
+      "relativeYearlyProfit": 32.304624882353416,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 11
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 38,
+        "ATR_LOW_SELL": 0.000049,
+        "ATR_HIGH_BUY": 0.000016,
+        "RSI_HIGH_SELL": 60,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "5f23c1c0-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 1.00086485,
+      "profit": 0.0008648499999999171,
+      "sharpe": 47.487731385012474,
+      "market": 5.809424867430479,
+      "relativeProfit": 0.08648499999999615,
+      "yearlyProfit": 0.3185344297058518,
+      "relativeYearlyProfit": 31.853442970586816,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 11
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 36,
+        "ATR_LOW_SELL": 0.000023,
+        "ATR_HIGH_BUY": 0.000016,
+        "RSI_HIGH_SELL": 59,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "751b1410-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.99385894,
+      "profit": -0.0061410600000000315,
+      "sharpe": -504.8474141412586,
+      "market": 5.809424867430479,
+      "relativeProfit": -0.6141060000000067,
+      "yearlyProfit": -2.2618246457647175,
+      "relativeYearlyProfit": -226.18246457647305,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 7
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 34,
+        "ATR_LOW_SELL": 0.000025,
+        "ATR_HIGH_BUY": 0.000017,
+        "RSI_HIGH_SELL": 56,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "942761b0-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.99149203,
+      "profit": -0.008507970000000031,
+      "sharpe": -550.2368175923541,
+      "market": 5.809424867430479,
+      "relativeProfit": -0.850797,
+      "yearlyProfit": -3.133585444764717,
+      "relativeYearlyProfit": -313.35854447647057,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 7
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 38,
+        "ATR_LOW_SELL": 0.000023,
+        "ATR_HIGH_BUY": 0.000019,
+        "RSI_HIGH_SELL": 55,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "bd7cbdd0-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.99100451,
+      "profit": -0.008995489999999995,
+      "sharpe": -728.4763940997282,
+      "market": 5.809424867430479,
+      "relativeProfit": -0.8995489999999933,
+      "yearlyProfit": -3.3131447962941154,
+      "relativeYearlyProfit": -331.3144796294093,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 11
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 38,
+        "ATR_LOW_SELL": 0.00004,
+        "ATR_HIGH_BUY": 0.000016,
+        "RSI_HIGH_SELL": 54,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "aa991420-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.98703882,
+      "profit": -0.012961180000000017,
+      "sharpe": -1079.0412346207609,
+      "market": 5.809424867430479,
+      "relativeProfit": -1.296118000000007,
+      "yearlyProfit": -4.773755078470594,
+      "relativeYearlyProfit": -477.3755078470614,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 9
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 36,
+        "ATR_LOW_SELL": 0.000027,
+        "ATR_HIGH_BUY": 0.000018,
+        "RSI_HIGH_SELL": 52,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "332003f0-a01e-11e9-b581-7986137eb065"
+  },
+  {
+    "results": {
+      "balance": 0.98490554,
+      "profit": -0.015094460000000032,
+      "sharpe": -795.3818857036177,
+      "market": 5.809424867430479,
+      "relativeProfit": -1.509445999999997,
+      "yearlyProfit": -5.559467199882365,
+      "relativeYearlyProfit": -555.9467199882341,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 7
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 38,
+        "ATR_LOW_SELL": 0.000017,
+        "ATR_HIGH_BUY": 0.000021,
+        "RSI_HIGH_SELL": 56,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "637e6950-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.98488495,
+      "profit": -0.015115050000000019,
+      "sharpe": -896.4261101609937,
+      "market": 5.809424867430479,
+      "relativeProfit": -1.5115049999999997,
+      "yearlyProfit": -5.567050739117653,
+      "relativeYearlyProfit": -556.7050739117645,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 7
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 38,
+        "ATR_LOW_SELL": 0.000031,
+        "ATR_HIGH_BUY": 0.000021,
+        "RSI_HIGH_SELL": 62,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "8faf6e20-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.98484322,
+      "profit": -0.01515677999999998,
+      "sharpe": -1771.6672372869627,
+      "market": 5.809424867430479,
+      "relativeProfit": -1.515677999999994,
+      "yearlyProfit": -5.582420389058816,
+      "relativeYearlyProfit": -558.2420389058801,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 7
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 39,
+        "ATR_LOW_SELL": 0.000032,
+        "ATR_HIGH_BUY": 0.00002,
+        "RSI_HIGH_SELL": 60,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "7e1c55c0-a01e-11e9-b581-7986137eb065"
+  },
+  {
+    "results": {
+      "balance": 0.9816636,
+      "profit": -0.01833640000000003,
+      "sharpe": -1076.7909688742448,
+      "market": 5.809424867430479,
+      "relativeProfit": -1.8336400000000026,
+      "yearlyProfit": -6.753511842352952,
+      "relativeYearlyProfit": -675.351184235295,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 7
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 38,
+        "ATR_LOW_SELL": 0.000019,
+        "ATR_HIGH_BUY": 0.000021,
+        "RSI_HIGH_SELL": 56,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "9d48b910-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.9807965,
+      "profit": -0.01920350000000004,
+      "sharpe": -1189.8141209619228,
+      "market": 5.809424867430479,
+      "relativeProfit": -1.9203499999999991,
+      "yearlyProfit": -7.0728749735294265,
+      "relativeYearlyProfit": -707.2874973529408,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 7
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 38,
+        "ATR_LOW_SELL": 0.000032,
+        "ATR_HIGH_BUY": 0.000021,
+        "RSI_HIGH_SELL": 55,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "a1a77f50-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.9807965,
+      "profit": -0.01920350000000004,
+      "sharpe": -1189.8141209619228,
+      "market": 5.809424867430479,
+      "relativeProfit": -1.9203499999999991,
+      "yearlyProfit": -7.0728749735294265,
+      "relativeYearlyProfit": -707.2874973529408,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 7
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 38,
+        "ATR_LOW_SELL": 0.000053,
+        "ATR_HIGH_BUY": 0.000021,
+        "RSI_HIGH_SELL": 56,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "b3d8a1e0-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.98072995,
+      "profit": -0.01927005000000004,
+      "sharpe": -974.93093094662,
+      "market": 5.809424867430479,
+      "relativeProfit": -1.9270050000000083,
+      "yearlyProfit": -7.097386121470602,
+      "relativeYearlyProfit": -709.7386121470619,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 5
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 34,
+        "ATR_LOW_SELL": 0.000011,
+        "ATR_HIGH_BUY": 0.00002,
+        "RSI_HIGH_SELL": 52,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "546f15a0-a01e-11e9-b581-7986137eb065"
+  },
+  {
+    "results": {
+      "balance": 0.97986708,
+      "profit": -0.02013292,
+      "sharpe": -1179.6158872790131,
+      "market": 5.809424867430479,
+      "relativeProfit": -2.013292000000007,
+      "yearlyProfit": -7.415191293882352,
+      "relativeYearlyProfit": -741.5191293882378,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 7
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 38,
+        "ATR_LOW_SELL": 0.000026,
+        "ATR_HIGH_BUY": 0.000021,
+        "RSI_HIGH_SELL": 52,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "822df0f0-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.97662317,
+      "profit": -0.023376830000000015,
+      "sharpe": -1112.4968683102366,
+      "market": 5.809424867430479,
+      "relativeProfit": -2.3376829999999984,
+      "yearlyProfit": -8.609961510529416,
+      "relativeYearlyProfit": -860.9961510529405,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 19
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 40,
+        "ATR_LOW_SELL": 0.000015,
+        "ATR_HIGH_BUY": 0.000015,
+        "RSI_HIGH_SELL": 51,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "3cc112a0-a01e-11e9-b581-7986137eb065"
+  },
+  {
+    "results": {
+      "balance": 0.97661453,
+      "profit": -0.02338547000000002,
+      "sharpe": -1378.772975961579,
+      "market": 5.809424867430479,
+      "relativeProfit": -2.3385470000000055,
+      "yearlyProfit": -8.613143724176478,
+      "relativeYearlyProfit": -861.314372417649,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 7
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 37,
+        "ATR_LOW_SELL": 0.000019,
+        "ATR_HIGH_BUY": 0.000021,
+        "RSI_HIGH_SELL": 48,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "80d24370-a01d-11e9-b581-7986137eb065"
+  },
+  {
+    "results": {
+      "balance": 0.97253265,
+      "profit": -0.02746735,
+      "sharpe": -1649.4323453081777,
+      "market": 5.809424867430479,
+      "relativeProfit": -2.746735000000001,
+      "yearlyProfit": -10.116548150294118,
+      "relativeYearlyProfit": -1011.6548150294121,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 7
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 39,
+        "ATR_LOW_SELL": 0.000024,
+        "ATR_HIGH_BUY": 0.000021,
+        "RSI_HIGH_SELL": 51,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "0a8528c0-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.97228763,
+      "profit": -0.02771237000000004,
+      "sharpe": -2349.437366871078,
+      "market": 5.809424867430479,
+      "relativeProfit": -2.7712369999999993,
+      "yearlyProfit": -10.206791898882368,
+      "relativeYearlyProfit": -1020.679189888235,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 19
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 39,
+        "ATR_LOW_SELL": 0.000046,
+        "ATR_HIGH_BUY": 0.000015,
+        "RSI_HIGH_SELL": 56,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "257362a0-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.97228763,
+      "profit": -0.02771237000000004,
+      "sharpe": -2349.437366871078,
+      "market": 5.809424867430479,
+      "relativeProfit": -2.7712369999999993,
+      "yearlyProfit": -10.206791898882368,
+      "relativeYearlyProfit": -1020.679189888235,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 19
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 39,
+        "ATR_LOW_SELL": 0.000028,
+        "ATR_HIGH_BUY": 0.000015,
+        "RSI_HIGH_SELL": 56,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "32a8bba0-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.97228763,
+      "profit": -0.02771237000000004,
+      "sharpe": -2349.437366871078,
+      "market": 5.809424867430479,
+      "relativeProfit": -2.7712369999999993,
+      "yearlyProfit": -10.206791898882368,
+      "relativeYearlyProfit": -1020.679189888235,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 19
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 39,
+        "ATR_LOW_SELL": 0.000028,
+        "ATR_HIGH_BUY": 0.000015,
+        "RSI_HIGH_SELL": 56,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "37014050-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.97228763,
+      "profit": -0.02771237000000004,
+      "sharpe": -2349.437366871078,
+      "market": 5.809424867430479,
+      "relativeProfit": -2.7712369999999993,
+      "yearlyProfit": -10.206791898882368,
+      "relativeYearlyProfit": -1020.679189888235,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 19
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 39,
+        "ATR_LOW_SELL": 0.000031,
+        "ATR_HIGH_BUY": 0.000015,
+        "RSI_HIGH_SELL": 56,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "3b952050-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.97154643,
+      "profit": -0.02845357000000004,
+      "sharpe": -3147.0397769106967,
+      "market": 5.809424867430479,
+      "relativeProfit": -2.845357000000007,
+      "yearlyProfit": -10.479784578882366,
+      "relativeYearlyProfit": -1047.978457888238,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 21
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 40,
+        "ATR_LOW_SELL": 0.000051,
+        "ATR_HIGH_BUY": 0.000016,
+        "RSI_HIGH_SELL": 53,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "0f0c3780-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.9672609,
+      "profit": -0.03273910000000002,
+      "sharpe": -3420.6968024984603,
+      "market": 5.809424867430479,
+      "relativeProfit": -3.2739100000000008,
+      "yearlyProfit": -12.05819569588236,
+      "relativeYearlyProfit": -1205.8195695882355,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 21
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 40,
+        "ATR_LOW_SELL": 0.000035,
+        "ATR_HIGH_BUY": 0.000016,
+        "RSI_HIGH_SELL": 51,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "4aedeb00-a01e-11e9-b581-7986137eb065"
+  },
+  {
+    "results": {
+      "balance": 0.9672609,
+      "profit": -0.03273910000000002,
+      "sharpe": -3420.6968024984603,
+      "market": 5.809424867430479,
+      "relativeProfit": -3.2739100000000008,
+      "yearlyProfit": -12.05819569588236,
+      "relativeYearlyProfit": -1205.8195695882355,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 21
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 40,
+        "ATR_LOW_SELL": 0.000035,
+        "ATR_HIGH_BUY": 0.000016,
+        "RSI_HIGH_SELL": 51,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "59095e40-a01e-11e9-b581-7986137eb065"
+  },
+  {
+    "results": {
+      "balance": 0.96669717,
+      "profit": -0.033302830000000005,
+      "sharpe": -3463.3215480302224,
+      "market": 5.809424867430479,
+      "relativeProfit": -3.3302829999999943,
+      "yearlyProfit": -12.265824087000002,
+      "relativeYearlyProfit": -1226.5824086999978,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 19
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 39,
+        "ATR_LOW_SELL": 0.000033,
+        "ATR_HIGH_BUY": 0.000015,
+        "RSI_HIGH_SELL": 53,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "48ec3220-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.96669717,
+      "profit": -0.033302830000000005,
+      "sharpe": -3463.3215480302224,
+      "market": 5.809424867430479,
+      "relativeProfit": -3.3302829999999943,
+      "yearlyProfit": -12.265824087000002,
+      "relativeYearlyProfit": -1226.5824086999978,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 19
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 39,
+        "ATR_LOW_SELL": 0.000045,
+        "ATR_HIGH_BUY": 0.000015,
+        "RSI_HIGH_SELL": 53,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "4d62ed30-a01f-11e9-a68e-c5d2e9ad726c"
+  },
+  {
+    "results": {
+      "balance": 0.96522815,
+      "profit": -0.03477185000000005,
+      "sharpe": -3167.582706829161,
+      "market": 5.809424867430479,
+      "relativeProfit": -3.4771850000000057,
+      "yearlyProfit": -12.806881435588252,
+      "relativeYearlyProfit": -1280.6881435588257,
+      "startPrice": 0.01015505,
+      "endPrice": 0.010745,
+      "trades": 17
+    },
+    "input": {
+      "interval": 10,
+      "candleSize": 1,
+      "historySize": 14,
+      "thresholds": {
+        "RSI_LOW_BUY": 40,
+        "ATR_LOW_SELL": 0.000048,
+        "ATR_HIGH_BUY": 0.000018,
+        "RSI_HIGH_SELL": 50,
+        "STOP_LOSS_RATIO": 0.99,
+        "RSI_HIGH_SELL_ALWAYS": 75
+      }
+    },
+    "id": "05f4f240-a01f-11e9-a68e-c5d2e9ad726c"
+  }
+]
