@@ -9,10 +9,11 @@ const util = require('util');
 
 class Ga {
 
-  constructor({ gekkoConfig, stratName, mainObjective, populationAmt, parallelqueries, minSharpe, maxLosses, maxMaxExposure, variation, mutateElements, notifications, getProperties, apiUrl }, configName ) {
+  constructor({ gekkoConfig, stratName, mainObjective, useFakeReport, populationAmt, parallelqueries, minSharpe, minProfitBatched, maxLosses, maxTrades, maxMaxExposure, variation, mutateElements, notifications, getProperties, apiUrl }, configName ) {
     this.configName = configName.replace(/\.js|config\//gi, "");
     this.stratName = stratName;
     this.mainObjective = mainObjective;
+    this.useFakeReport = useFakeReport;
     this.getProperties = getProperties;
     this.apiUrl = apiUrl;
     this.sendemail = notifications.email.enabled;
@@ -26,7 +27,9 @@ class Ga {
     this.populationAmt = populationAmt;
     this.parallelqueries = parallelqueries;
     this.minSharpe = minSharpe;
+    this.minProfitBatched = minProfitBatched || 1; // give 5% min profit each month
     this.maxLosses = maxLosses || 0;
+    this.maxTrades = maxTrades || 0;
     this.maxMaxExposure = maxMaxExposure;
     this.variation = variation;
     this.mutateElements = mutateElements;
@@ -193,14 +196,14 @@ class Ga {
   }
 
   // For the given population and fitness, returns new population and max score
-  runEpoch(population, populationProfits, populationSharpes, populationLosses, populationScores, populationExposures, populationTrades, populationMaxExposes) {
+  runEpoch(population, populationProfits, populationSharpes, populationLosses, populationScores, populationExposures, populationTrades, populationMaxExposes, populationMinProfits) {
     let selectionProb = [];
     let fitnessSum = 0;
-    let maxFitness = [0, 0, 0, 0, 0, 0, 0, 0];
+    let maxFitness = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
     for (let i = 0; i < this.populationAmt; i++) {
 
-      if (this.mainObjective == 'score') {
+      if (this.mainObjective === 'score') {
 
         if (populationProfits[i] < 0 && populationSharpes[i] < 0) {
 
@@ -218,7 +221,7 @@ class Ga {
 
         }
 
-      } else if (this.mainObjective == 'profit') {
+      } else if (this.mainObjective === 'profit') {
 
         if (populationProfits[i] > maxFitness[0]) {
 
@@ -226,7 +229,15 @@ class Ga {
 
         }
 
-      } else if (this.mainObjective == 'profitForMinSharpe') {
+      }  else if (this.mainObjective === 'profitBatched') {
+
+        if (populationMinProfits[i] >= this.minProfitBatched && populationProfits[i] > maxFitness[0]) {
+          maxFitness = [populationProfits[i], populationSharpes[i], populationScores[i], i, populationLosses[i]
+            , populationExposures[i], populationTrades[i], populationMaxExposes[i], populationMinProfits[i]];
+          console.error(`profitBatched:: new maxFitness: ${ JSON.stringify(maxFitness) } (minProfitBatched: ${ this.minProfitBatched })`)
+        }
+
+      } else if (this.mainObjective === 'profitForMinSharpe') {
 
         if (populationProfits[i] > maxFitness[0] && populationSharpes[i] >= this.minSharpe) {
 
@@ -234,7 +245,16 @@ class Ga {
 
         }
 
-      } else if (this.mainObjective == 'profitForMaxTradesMinLosses') {
+      } else if (this.mainObjective === 'profitForMaxTrades') {
+
+        if (populationProfits[i] > maxFitness[ 0 ] && populationTrades[i] >= maxFitness[ 6 ]) {
+
+          maxFitness = [populationProfits[i], populationSharpes[i], populationScores[i], i, populationLosses[i]
+            , populationExposures[i], populationTrades[i], populationMaxExposes[i]];
+
+        }
+
+      } else if (this.mainObjective === 'profitForMaxTradesLimitedLosses') {
 
         if (populationProfits[i] > maxFitness[0] && populationLosses[i] <= this.maxLosses) {
 
@@ -242,7 +262,7 @@ class Ga {
 
         }
 
-      } else if (this.mainObjective == 'profitForLimitedLossesLimitedMaxExposure') {
+      } else if (this.mainObjective === 'profitForLimitedLossesLimitedMaxExposure') {
 
         if (populationProfits[i] > maxFitness[0] && populationLosses[i] <= this.maxLosses && populationMaxExposes[i] <= this.maxMaxExposure) {
 
@@ -347,32 +367,55 @@ class Ga {
     const results = await this.queue(testsSeries, numberOfParallelQueries, async (data) => {
 
       const outconfig = this.getConfig(data);
-      const body = await rp.post({
-        url: `${this.apiUrl}/api/backtest`,
+
+      let body, url;
+      if (this.mainObjective === 'profitBatched') {
+        // batched report:
+        outconfig.batch = { noBigData: true, synchronous: true };
+        url = `${this.apiUrl}/api/batchBacktest`;
+      } else {
+        url = `${this.apiUrl}/api/backtest`;
+      }
+      body = await rp.post({
+        url,
         json: true,
         body: outconfig,
-        headers: { 'Content-Type': 'application/json' },
+        headers: {'Content-Type': 'application/json'},
         timeout: 3600000
       });
+      let result = { profit: 0, metrics: false, losses: 0, exposure: 0, trades: 0, maxExposure: 0, minProfit: 0 };
+      if (this.useFakeReport) {
+        result = {
+          profit: body.fakeReport.total,
+          minProfit: body.fakeReport.stats.map(s => s.profitTot).reduce((min, c) => min = c < min ? c: min, Infinity)
+        };
+      } else {
+        // These properties will be outputted every epoch, remove property if not needed
+        const properties = ['balance', 'profit', 'sharpe', 'losses', 'market', 'relativeProfit', 'yearlyProfit',
+          'relativeYearlyProfit', 'startPrice', 'endPrice', 'trades', 'exposure', 'maxExposure', 'minProfit'];
+        const report = body.performanceReport;
+        if (report) {
 
-      // These properties will be outputted every epoch, remove property if not needed
-      const properties = ['balance', 'profit', 'sharpe', 'losses', 'market', 'relativeProfit', 'yearlyProfit', 'relativeYearlyProfit', 'startPrice', 'endPrice', 'trades', 'exposure', 'maxExposure'];
-      const report = body.performanceReport;
-      let result = { profit: 0, metrics: false, losses: 0, exposure: 0, trades: 0, maxExposure: 0 };
+          let picked = properties.reduce((o, k) => {
 
-      if (report) {
+            o[k] = report[k];
 
-        let picked = properties.reduce((o, k) => {
+            return o;
 
-          o[k] = report[k];
+          }, {});
 
-          return o;
+          result = {
+            profit: body.performanceReport.profit,
+            sharpe: body.performanceReport.sharpe,
+            losses: body.performanceReport.losses,
+            metrics: picked,
+            exposure: body.performanceReport.exposure,
+            trades: body.performanceReport.trades,
+            maxExposure: body.performanceReport.maxExposure,
+            minProfit: body.performanceReport.minProfit
+          };
 
-        }, {});
-
-        result = { profit: body.performanceReport.profit, sharpe: body.performanceReport.sharpe, losses: body.performanceReport.losses, metrics: picked
-          , exposure: body.performanceReport.exposure, trades: body.performanceReport.trades, maxExposure: body.performanceReport.maxExposure };
-
+        }
       }
 
       return result;
@@ -386,6 +429,7 @@ class Ga {
     let trades = [];
     let exposures = [];
     let maxExposures = [];
+    let populationMinProfits = [];
     let otherMetrics = [];
 
     for (let i in results) {
@@ -399,13 +443,14 @@ class Ga {
         trades.push(results[i]['trades']);
         exposures.push(results[i]['exposure']);
         maxExposures.push(results[i]['maxExposure']);
+        populationMinProfits.push(results[i]['minProfit']);
         otherMetrics.push(results[i]['metrics']);
 
       }
 
     }
 
-    return { scores, profits, sharpes, losses, trades, exposures, maxExposures, otherMetrics };
+    return { scores, profits, sharpes, losses, trades, exposures, maxExposures, otherMetrics, populationMinProfits };
 
   }
 
@@ -421,11 +466,13 @@ class Ga {
     let populationTrades;
     let populationExposures;
     let populationMaxExposures;
+    let populationMinProfits;
     let otherPopulationMetrics;
     let allTimeMaximum = {
       parameters: {},
       score: -5,
       profit: -5,
+      minProfit: -5,
       sharpe: -5,
       losses: -5,
       exposure: -5,
@@ -443,6 +490,7 @@ class Ga {
       epochNumber = this.previousBestParams.epochNumber;
       populationScores = this.previousBestParams.score;
       populationProfits = this.previousBestParams.profit;
+      populationMinProfits = this.previousBestParams.minProfit;
       populationSharpes = this.previousBestParams.sharpe;
       populationLosses = this.previousBestParams.losses;
       populationExposures = this.previousBestParams.exposure;
@@ -451,6 +499,7 @@ class Ga {
         parameters: this.previousBestParams.parameters,
         score: this.previousBestParams.score,
         profit: this.previousBestParams.profit,
+        minProfit: this.previousBestParams.minProfit,
         sharpe: this.previousBestParams.sharpe,
         losses: this.previousBestParams.losses,
         exposure: this.previousBestParams.exposure,
@@ -481,12 +530,13 @@ class Ga {
       populationTrades = res.trades;
       populationExposures = res.exposures;
       populationMaxExposures = res.maxExposures;
+      populationMinProfits = res.populationMinProfits;
       otherPopulationMetrics = res.otherMetrics;
 
       let endTime = new Date().getTime();
       epochNumber++;
       let results = this.runEpoch(population, populationProfits, populationSharpes, populationLosses, populationScores
-        , populationExposures, populationTrades, populationMaxExposures);
+        , populationExposures, populationTrades, populationMaxExposures, populationMinProfits);
       let newPopulation = results[0];
       let maxResult = results[1];
       let score = maxResult[2];
@@ -497,9 +547,10 @@ class Ga {
       let maxExposure = maxResult[7];
       let trades = maxResult[6];
       let position = maxResult[3];
+      let minProfit = maxResult[8];
 
       this.notifynewhigh = false;
-      if (this.mainObjective == 'score') {
+      if (this.mainObjective === 'score') {
         if (score >= allTimeMaximum.score) {
           this.notifynewhigh = true;
           allTimeMaximum.parameters = population[position];
@@ -510,7 +561,7 @@ class Ga {
           allTimeMaximum.epochNumber = epochNumber;
 
         }
-      } else if (this.mainObjective == 'profit') {
+      } else if (this.mainObjective === 'profit') {
         if (profit >= allTimeMaximum.profit) {
           this.notifynewhigh = true;
           allTimeMaximum.parameters = population[position];
@@ -522,7 +573,20 @@ class Ga {
           allTimeMaximum.epochNumber = epochNumber;
 
         }
-      } else if (this.mainObjective == 'profitForMinSharpe') {
+      } else if (this.mainObjective === 'profitBatched') {
+        if (profit >= allTimeMaximum.profit && minProfit >= this.minProfitBatched) {
+          this.notifynewhigh = true;
+          allTimeMaximum.parameters = population[position];
+          allTimeMaximum.otherMetrics = otherPopulationMetrics[position];
+          allTimeMaximum.score = score;
+          allTimeMaximum.profit = profit;
+          allTimeMaximum.minProfit = minProfit;
+          allTimeMaximum.sharpe = sharpe;
+          allTimeMaximum.losses = losses;
+          allTimeMaximum.epochNumber = epochNumber;
+
+        }
+      } else if (this.mainObjective === 'profitForMinSharpe') {
         if (profit >= allTimeMaximum.profit && sharpe >= this.minSharpe) {
           this.notifynewhigh = true;
           allTimeMaximum.parameters = population[position];
@@ -533,7 +597,19 @@ class Ga {
           allTimeMaximum.losses = losses;
           allTimeMaximum.epochNumber = epochNumber;
         }
-      } else if (this.mainObjective == 'profitForMaxTradeLimitedLosses') {
+      } else if (this.mainObjective === 'profitForMaxTrades') {
+        if (profit >= allTimeMaximum.profit && sharpe >= allTimeMaximum.trades) {
+          this.notifynewhigh = true;
+          allTimeMaximum.parameters = population[position];
+          allTimeMaximum.otherMetrics = otherPopulationMetrics[position];
+          allTimeMaximum.score = score;
+          allTimeMaximum.profit = profit;
+          allTimeMaximum.sharpe = sharpe;
+          allTimeMaximum.losses = losses;
+          allTimeMaximum.trades = trades;
+          allTimeMaximum.epochNumber = epochNumber;
+        }
+      } else if (this.mainObjective === 'profitForMaxTradesLimitedLosses') {
         if (profit >= allTimeMaximum.profit && losses <= this.maxLosses) {
           this.notifynewhigh = true;
           allTimeMaximum.parameters = population[position];
@@ -547,7 +623,7 @@ class Ga {
           allTimeMaximum.epocLosseshNumber = epochNumber;
 
         }
-      } else if (this.mainObjective == 'profitForLimitedLossesLimitedMaxExposure') {
+      } else if (this.mainObjective === 'profitForLimitedLossesLimitedMaxExposure') {
         if (profit >= allTimeMaximum.profit && losses <= this.maxLosses && maxExposure <= this.maxMaxExposure) {
           console.error(`allTimeMax: profit: ${profit}, losses: ${losses}, maxExposure: ${ maxExposure}, this.maxLosses: ${this.maxLosses}, this.maxMaxExposure: ${this.maxMaxExposure}, `)
           this.notifynewhigh = true;
@@ -571,6 +647,7 @@ class Ga {
     Time it took (seconds): ${(endTime - startTime) / 1000}
     Max score: ${score}
     Max profit: ${profit} ${this.currency}
+    Max min profit: ${ minProfit } ${this.currency}
     Max sharpe: ${sharpe}
     Max profit position: ${position}
     Max parameters:
@@ -595,6 +672,7 @@ class Ga {
     Global Maximums:
     Score: ${allTimeMaximum.score}
     Profit: ${allTimeMaximum.profit} ${this.currency}
+    MinProfit: ${allTimeMaximum.minProfit}
     Sharpe: ${allTimeMaximum.sharpe}
     Losses: ${allTimeMaximum.losses}
     MaxExposure: ${allTimeMaximum.maxExposure}

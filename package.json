@@ -4,6 +4,8 @@
   "description": "GA for Gekko",
   "main": "index.js",
   "scripts": {
+    "config-main": "node run -c config/config-aaat-stats.js",
+    "config-iamrich2": "node run -c config/config-iamrich-2.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "rsi_atr-usd_btc": "node run -c config/config-rsi_atr-usd_btc.js",
     "rsi_atr-usd_btc-2": "node run -c config/config-rsi_atr-usd_btc-2.js",
