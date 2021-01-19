@@ -30,10 +30,10 @@ const config = {
     variation: 0.5,
     mutateElements: 7, // How many components maximum to mutate at once
     parallelqueries: 4, // How many parallel queries to run at once
-    mainObjective: 'profitBatched',
-    minProfitBatched: 0.001, // just any positivity
 
-    useFakeReport: true,
+    mainObjective: 'profitBatched',
+    BATCH_PERIOD_MIN_PROFIT: 0.001, // just any positivity
+    USE_FAKE_REPORT: true,
 
     candleValues: [ 3, 5, 10, 15, 30, 60, 120 ],
 
