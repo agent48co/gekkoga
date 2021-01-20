@@ -9,10 +9,17 @@ const util = require('util');
 
 class BatchProfit {
   constructor(props = {}) {
+    const propsCopy = { ...props }
+    if (propsCopy.minProfit === null) {
+      delete propsCopy.minProfit;
+    }
+    if (propsCopy.nonProfitPeriods === null) {
+      delete propsCopy.nonProfitPeriods;
+    }
     this.minProfit = -Infinity;          // minimal monthly profit
     this.nonProfitPeriods = Infinity;   // amount of periods with profit less than BATCH_PERIOD_MIN_PROFIT
 
-    Object.assign(this, props);
+    Object.assign(this, propsCopy);
   }
 }
 
