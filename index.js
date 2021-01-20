@@ -10,7 +10,7 @@ const util = require('util');
 class BatchProfit {
   constructor(props = {}) {
     this.minProfit = -Infinity;          // minimal monthly profit
-    this.nonProfitPeriods = -Infinity;   // amount of periods with profit less than BATCH_PERIOD_MIN_PROFIT
+    this.nonProfitPeriods = Infinity;   // amount of periods with profit less than BATCH_PERIOD_MIN_PROFIT
 
     Object.assign(this, props);
   }
@@ -18,7 +18,9 @@ class BatchProfit {
 
 class Ga {
 
-  constructor({ gekkoConfig, stratName, mainObjective, USE_FAKE_REPORT, populationAmt, parallelqueries, minSharpe, BATCH_PERIOD_MIN_PROFIT, maxLosses, maxTrades, maxMaxExposure, variation, mutateElements, notifications, getProperties, apiUrl }, configName ) {
+  constructor({ gekkoConfig, stratName, mainObjective, USE_FAKE_REPORT, populationAmt, parallelqueries, minSharpe,
+                BATCH_PERIOD_MIN_PROFIT, BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS, maxLosses, maxTrades, maxMaxExposure,
+                variation, mutateElements, notifications, getProperties, apiUrl }, configName ) {
     this.configName = configName.replace(/\.js|config\//gi, "");
     this.stratName = stratName;
     this.mainObjective = mainObjective;
@@ -36,7 +38,8 @@ class Ga {
     this.populationAmt = populationAmt;
     this.parallelqueries = parallelqueries;
     this.minSharpe = minSharpe;
-    this.BATCH_PERIOD_MIN_PROFIT = BATCH_PERIOD_MIN_PROFIT || 1; // give 5% min profit each month
+    this.BATCH_PERIOD_MIN_PROFIT = BATCH_PERIOD_MIN_PROFIT || -Infinity; // disregard if not found
+    this.BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS = BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS || Infinity; // disregard if not found
     this.maxLosses = maxLosses || 0;
     this.maxTrades = maxTrades || 0;
     this.maxMaxExposure = maxMaxExposure;
@@ -208,7 +211,7 @@ class Ga {
   runEpoch(population, populationProfits, populationSharpes, populationLosses, populationScores, populationExposures, populationTrades, populationMaxExposes, populationBatchProfits) {
     let selectionProb = [];
     let fitnessSum = 0;
-    let maxFitness = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    let maxFitness = [0, 0, 0, 0, 0, 0, 0, 0, new BatchProfit()];
 
     for (let i = 0; i < this.populationAmt; i++) {
 
@@ -240,10 +243,16 @@ class Ga {
 
       }  else if (this.mainObjective === 'profitBatched') {
 
-        if (populationBatchProfits[i].minProfit >= this.BATCH_PERIOD_MIN_PROFIT && populationProfits[i] > maxFitness[0]) {
+        if (
+          populationProfits[i] > maxFitness[0]
+            && populationBatchProfits[i].minProfit >= this.BATCH_PERIOD_MIN_PROFIT
+            && populationBatchProfits[i].nonProfitPeriods <= maxFitness[8].nonProfitPeriods
+            && populationBatchProfits[i].nonProfitPeriods <= this.BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS
+            ) {
           maxFitness = [populationProfits[i], populationSharpes[i], populationScores[i], i, populationLosses[i]
             , populationExposures[i], populationTrades[i], populationMaxExposes[i], populationBatchProfits[i]];
-          console.error(`profitBatched:: new maxFitness: ${ JSON.stringify(maxFitness) } (BATCH_PERIOD_MIN_PROFIT: ${ this.BATCH_PERIOD_MIN_PROFIT })`)
+          console.error(`profitBatched:: new maxFitness: ${ JSON.stringify(maxFitness) } (BATCH_PERIOD_MIN_PROFIT: ${ 
+            this.BATCH_PERIOD_MIN_PROFIT }), (BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS: ${ this.BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS })`)
         }
 
       } else if (this.mainObjective === 'profitForMinSharpe') {
@@ -504,7 +513,7 @@ class Ga {
       epochNumber = this.previousBestParams.epochNumber;
       populationScores = this.previousBestParams.score;
       populationProfits = this.previousBestParams.profit;
-      populationBatchProfits = this.previousBestParams.batchProfit;
+      populationBatchProfits = new BatchProfit(this.previousBestParams.batchProfit);
       populationSharpes = this.previousBestParams.sharpe;
       populationLosses = this.previousBestParams.losses;
       populationExposures = this.previousBestParams.exposure;
@@ -513,7 +522,7 @@ class Ga {
         parameters: this.previousBestParams.parameters,
         score: this.previousBestParams.score,
         profit: this.previousBestParams.profit,
-        batchProfit: this.previousBestParams.batchProfit,
+        batchProfit: new BatchProfit(this.previousBestParams.batchProfit),
         sharpe: this.previousBestParams.sharpe,
         losses: this.previousBestParams.losses,
         exposure: this.previousBestParams.exposure,
@@ -588,9 +597,12 @@ class Ga {
 
         }
       } else if (this.mainObjective === 'profitBatched') {
-        if (profit >= allTimeMaximum.profit
-            && batchProfit.nonProfitPeriods >= allTimeMaximum.batchProfit.nonProfitPeriods
-            && batchProfit.minProfit >= this.BATCH_PERIOD_MIN_PROFIT) {
+        if (
+          profit >= allTimeMaximum.profit
+            && batchProfit.nonProfitPeriods <= allTimeMaximum.batchProfit.nonProfitPeriods
+            && batchProfit.nonProfitPeriods <= this.BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS
+            && batchProfit.minProfit >= this.BATCH_PERIOD_MIN_PROFIT
+        ) {
 
           this.notifynewhigh = true;
           allTimeMaximum.parameters = population[position];
@@ -664,7 +676,7 @@ class Ga {
     Time it took (seconds): ${(endTime - startTime) / 1000}
     Max score: ${score}
     Max profit: ${profit} ${this.currency}
-    Max batch profit: ${ JSON.stringify(batchProfit) } ${this.currency}
+    Max batch profit: ${ JSON.stringify(batchProfit) }
     Max sharpe: ${sharpe}
     Max profit position: ${position}
     Max parameters:
