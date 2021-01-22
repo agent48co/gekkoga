@@ -251,9 +251,9 @@ class Ga {
       }  else if (this.mainObjective === 'profitBatched') {
 
         if (
-          populationProfits[i] > maxFitness[0]
-            && populationBatchProfits[i].minProfit >= this.BATCH_PERIOD_MIN_PROFIT
-            && populationBatchProfits[i].nonProfitPeriods <= maxFitness[8].nonProfitPeriods
+          // populationProfits[i] > maxFitness[0]
+          populationBatchProfits[i].minProfit >= this.BATCH_PERIOD_MIN_PROFIT
+            && populationBatchProfits[i].nonProfitPeriods < maxFitness[8].nonProfitPeriods
             && populationBatchProfits[i].nonProfitPeriods <= this.BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS
             ) {
           maxFitness = [populationProfits[i], populationSharpes[i], populationScores[i], i, populationLosses[i]
@@ -298,21 +298,24 @@ class Ga {
 
       }
 
-      fitnessSum += populationProfits[i];
-
+      if (this.mainObjective === 'profitBatched') {
+        fitnessSum += populationBatchProfits[i].nonProfitPeriods;
+      } else {
+        fitnessSum += populationProfits[i];
+      }
     }
 
     if (fitnessSum === 0) {
-
       for (let j = 0; j < this.populationAmt; j++) {
-
         selectionProb[j] = 1 / this.populationAmt;
-
       }
-
     } else {
       for (let j = 0; j < this.populationAmt; j++) {
-        selectionProb[j] = populationProfits[j] / fitnessSum;
+        if (this.mainObjective === 'profitBatched') {
+          selectionProb[j] = populationBatchProfits[j].nonProfitPeriods / fitnessSum;
+        } else {
+          selectionProb[j] = populationProfits[j] / fitnessSum;
+        }
       }
 
     }
@@ -322,45 +325,32 @@ class Ga {
     while (newPopulation.length < this.populationAmt * (1 - this.variation)) {
 
       let a, b;
+
       let selectedProb = randomExt.float(1, 0);
-
       for (let k = 0; k < this.populationAmt; k++) {
-
         selectedProb -= selectionProb[k];
-
         if (selectedProb <= 0) {
-
           a = population[k];
           break;
-
         }
-
       }
+
       selectedProb = randomExt.float(1, 0);
-
       for (let k = 0; k < this.populationAmt; k++) {
-
         selectedProb -= selectionProb[k];
-
         if (selectedProb <= 0) {
-
           b = population[k];
           break;
-
         }
-
       }
 
       let res = this.crossover(this.mutate(a, this.mutateElements), this.mutate(b, this.mutateElements));
       newPopulation.push(res[0]);
       newPopulation.push(res[1]);
-
     }
 
     for (let l = 0; l < this.populationAmt * this.variation; l++) {
-
       newPopulation.push(this.createGene('all'));
-
     }
 
     return [newPopulation, maxFitness];
@@ -388,7 +378,7 @@ class Ga {
   async fitnessApi(testsSeries) {
 
     const numberOfParallelQueries = this.parallelqueries;
-
+    console.time('fitnessApi::restCall');
     const results = await this.queue(testsSeries, numberOfParallelQueries, async (data) => {
 
       const outconfig = this.getConfig(data);
@@ -451,7 +441,7 @@ class Ga {
       return result;
 
     });
-
+    console.timeEnd('fitnessApi::restCall');
     let scores = [];
     let profits = [];
     let sharpes = [];
@@ -605,8 +595,8 @@ class Ga {
         }
       } else if (this.mainObjective === 'profitBatched') {
         if (
-          profit >= allTimeMaximum.profit
-            && batchProfit.nonProfitPeriods <= allTimeMaximum.batchProfit.nonProfitPeriods
+          //profit >= allTimeMaximum.profit
+            batchProfit.nonProfitPeriods < allTimeMaximum.batchProfit.nonProfitPeriods
             && batchProfit.nonProfitPeriods <= this.BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS
             && batchProfit.minProfit >= this.BATCH_PERIOD_MIN_PROFIT
         ) {
