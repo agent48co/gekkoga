@@ -7,6 +7,8 @@ const fs = require('fs-extra');
 const flat = require('flat');
 const util = require('util');
 
+const INFINITY_SERIALIZABLE = 1000000;
+
 class BatchProfit {
   constructor(props = {}) {
     const propsCopy = { ...props }
@@ -16,17 +18,16 @@ class BatchProfit {
     if (propsCopy.nonProfitPeriods === null) {
       delete propsCopy.nonProfitPeriods;
     }
-    this.minProfit = -Infinity;          // minimal monthly profit
-    this.nonProfitPeriods = Infinity;   // amount of periods with profit less than BATCH_PERIOD_MIN_PROFIT
+    this.minProfit = -INFINITY_SERIALIZABLE;          // minimal monthly profit, can't use Infinity - non-json serializable
+    this.nonProfitPeriods = INFINITY_SERIALIZABLE;   // amount of periods with profit less than BATCH_PERIOD_MIN_PROFIT
 
     Object.assign(this, propsCopy);
   }
 }
 
 class Ga {
-
   constructor({ gekkoConfig, stratName, mainObjective, USE_FAKE_REPORT, populationAmt, parallelqueries, minSharpe,
-                BATCH_PERIOD_MIN_PROFIT, BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS, maxLosses, maxTrades, maxMaxExposure,
+                BATCH_PERIOD_MIN_PROFIT, BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS, BATCH_SIZE, maxLosses, maxTrades, maxMaxExposure,
                 variation, mutateElements, notifications, getProperties, apiUrl }, configName ) {
     this.configName = configName.replace(/\.js|config\//gi, "");
     this.stratName = stratName;
@@ -34,24 +35,28 @@ class Ga {
     this.USE_FAKE_REPORT = USE_FAKE_REPORT;
     this.getProperties = getProperties;
     this.apiUrl = apiUrl;
-    this.sendemail = notifications.email.enabled;
-    this.senderservice = notifications.email.senderservice;
-    this.sender = notifications.email.sender;
-    this.senderpass = notifications.email.senderpass;
-    this.receiver = notifications.email.receiver;
+    if (notifications && notifications.email) {
+      this.sendemail = notifications.email.enabled;
+      this.senderservice = notifications.email.senderservice;
+      this.sender = notifications.email.sender;
+      this.senderpass = notifications.email.senderpass;
+      this.receiver = notifications.email.receiver;
+    }
+
     this.currency = gekkoConfig.watch.currency;
     this.asset = gekkoConfig.watch.asset;
     this.previousBestParams = null;
     this.populationAmt = populationAmt;
     this.parallelqueries = parallelqueries;
     this.minSharpe = minSharpe;
-    this.BATCH_PERIOD_MIN_PROFIT = BATCH_PERIOD_MIN_PROFIT || -Infinity; // disregard if not found
-    this.BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS = BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS || Infinity; // disregard if not found
+    this.BATCH_PERIOD_MIN_PROFIT = BATCH_PERIOD_MIN_PROFIT || -INFINITY_SERIALIZABLE; // disregard if not found
+    this.BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS = BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS || INFINITY_SERIALIZABLE; // disregard if not found
     this.maxLosses = maxLosses || 0;
     this.maxTrades = maxTrades || 0;
     this.maxMaxExposure = maxMaxExposure;
     this.variation = variation;
     this.mutateElements = mutateElements;
+    this.batchSize = BATCH_SIZE || '1 month';
     this.baseConfig = {
       watch: gekkoConfig.watch,
       paperTrader: {
@@ -97,8 +102,6 @@ class Ga {
       },
       valid: true
     };
-
-
   }
 
   // Checks for, and if present loads old .json parameters
@@ -251,15 +254,13 @@ class Ga {
       }  else if (this.mainObjective === 'profitBatched') {
 
         if (
-          // populationProfits[i] > maxFitness[0]
-          populationBatchProfits[i].minProfit >= this.BATCH_PERIOD_MIN_PROFIT
-            && populationBatchProfits[i].nonProfitPeriods < maxFitness[8].nonProfitPeriods
+          populationProfits[i] > maxFitness[0]
+            && populationBatchProfits[i].minProfit >= this.BATCH_PERIOD_MIN_PROFIT
+            && populationBatchProfits[i].nonProfitPeriods <= maxFitness[8].nonProfitPeriods
             && populationBatchProfits[i].nonProfitPeriods <= this.BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS
             ) {
           maxFitness = [populationProfits[i], populationSharpes[i], populationScores[i], i, populationLosses[i]
             , populationExposures[i], populationTrades[i], populationMaxExposes[i], populationBatchProfits[i]];
-          console.error(`profitBatched:: new maxFitness: ${ JSON.stringify(maxFitness) } (BATCH_PERIOD_MIN_PROFIT: ${ 
-            this.BATCH_PERIOD_MIN_PROFIT }), (BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS: ${ this.BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS })`)
         }
 
       } else if (this.mainObjective === 'profitForMinSharpe') {
@@ -298,12 +299,10 @@ class Ga {
 
       }
 
-      if (this.mainObjective === 'profitBatched') {
-        fitnessSum += populationBatchProfits[i].nonProfitPeriods;
-      } else {
-        fitnessSum += populationProfits[i];
-      }
+      fitnessSum += populationProfits[i];
     }
+
+    console.error(`profitBatched:: epoch maxFitness: ${ JSON.stringify(maxFitness) }`)
 
     if (fitnessSum === 0) {
       for (let j = 0; j < this.populationAmt; j++) {
@@ -311,11 +310,7 @@ class Ga {
       }
     } else {
       for (let j = 0; j < this.populationAmt; j++) {
-        if (this.mainObjective === 'profitBatched') {
-          selectionProb[j] = populationBatchProfits[j].nonProfitPeriods / fitnessSum;
-        } else {
-          selectionProb[j] = populationProfits[j] / fitnessSum;
-        }
+        selectionProb[j] = populationProfits[j] / fitnessSum;
       }
 
     }
@@ -386,7 +381,12 @@ class Ga {
       let body, url;
       if (this.mainObjective === 'profitBatched') {
         // batched report:
-        outconfig.batch = { noBigData: true, synchronous: true, batchPeriodProfitThreshold: this.BATCH_PERIOD_MIN_PROFIT };
+        outconfig.batch = {
+          noBigData: true,
+          synchronous: true,
+          batchPeriodProfitThreshold: this.BATCH_PERIOD_MIN_PROFIT,
+        };
+        outconfig.batchBacktest = { batchSize: this.batchSize }
         url = `${this.apiUrl}/api/batchBacktest`;
       } else {
         url = `${this.apiUrl}/api/backtest`;
@@ -403,7 +403,7 @@ class Ga {
         result = {
           profit: body.fakeReport.total,
           batchProfit: new BatchProfit({
-            minProfit: body.fakeReport.stats.map(s => s.profitTot).reduce((min, c) => min = c < min ? c: min, Infinity),
+            minProfit: body.fakeReport.stats.map(s => s.profitTot).reduce((min, c) => min = c < min ? c: min, INFINITY_SERIALIZABLE),
             nonProfitPeriods: body.fakeReport.stats.filter(s => s.profitTot < this.BATCH_PERIOD_MIN_PROFIT).length,
           })
         };
@@ -595,8 +595,8 @@ class Ga {
         }
       } else if (this.mainObjective === 'profitBatched') {
         if (
-          //profit >= allTimeMaximum.profit
-            batchProfit.nonProfitPeriods < allTimeMaximum.batchProfit.nonProfitPeriods
+            profit > allTimeMaximum.profit
+            && batchProfit.nonProfitPeriods <= allTimeMaximum.batchProfit.nonProfitPeriods
             && batchProfit.nonProfitPeriods <= this.BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS
             && batchProfit.minProfit >= this.BATCH_PERIOD_MIN_PROFIT
         ) {
@@ -756,5 +756,6 @@ class Ga {
 
 }
 
+Ga.INFINITY_SERIALIZABLE = INFINITY_SERIALIZABLE;
 
 module.exports = Ga;
