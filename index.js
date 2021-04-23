@@ -49,7 +49,7 @@ class Ga {
     this.populationAmt = populationAmt;
     this.parallelqueries = parallelqueries;
     this.minSharpe = minSharpe;
-    this.BATCH_PERIOD_MIN_PROFIT = BATCH_PERIOD_MIN_PROFIT || -INFINITY_SERIALIZABLE; // disregard if not found
+    this.BATCH_PERIOD_MIN_PROFIT = BATCH_PERIOD_MIN_PROFIT !== undefined ? BATCH_PERIOD_MIN_PROFIT : -INFINITY_SERIALIZABLE; // disregard if not found
     this.BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS = BATCH_MAX_ALLOWED_NON_PROFIT_PERIODS || INFINITY_SERIALIZABLE; // disregard if not found
     this.maxLosses = maxLosses || 0;
     this.maxTrades = maxTrades || 0;
@@ -718,7 +718,10 @@ class Ga {
 
       const configId = `${this.configName}-${this.currency}_${this.asset}`;
       process.send && process.send({results: otherPopulationMetrics[position], input: population[position], configId: configId});
-      await fs.writeFile(`./results/${configId}.json`, json, 'utf8').catch(err => console.log(err) );
+      if (this.notifynewhigh) {
+        await fs.writeFile(`./results/${configId}.json`, json, 'utf8').catch(err => console.log(err));
+      }
+      // await fs.writeFile(`./results/${configId}.json`, json, 'utf8').catch(err => console.log(err) ); // test only
 
       if (this.sendemail && this.notifynewhigh) {
         var transporter = nodemailer.createTransport({
